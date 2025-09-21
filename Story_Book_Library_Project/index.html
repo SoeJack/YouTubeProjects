@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Book Library - Persistent CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div class="container" id="loginPage">
+        <h2>&#x1F510; Story Library Login</h2> 
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <div class="error" id="errorMsg"></div>
+    </div>
+
+    <!-- Library Page -->
+    <div class="library hidden" id="libraryPage">
+        <h2>&#x1F4DA; Story Book Library</h2> 
+        <div class="books" id="bookList"></div>
+
+        <!-- Admin Add Book -->
+        <div class="admin-controls hidden" id="adminControls">
+            <h3>&#x2795; Add New Book</h3> 
+            <input type="text" id="newBookTitle" placeholder="Book Title">
+            <textarea id="newBookContent" placeholder="Book Content" rows="3"
+                style="width:100%;padding:10px;margin-top:8px;border-radius:10px;"></textarea>
+            <button onclick="addBook()">Add Book</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&#x274C;</span> 
+            <h3 id="modalTitle"></h3>
+            <p id="modalContent"></p>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+
+</html>

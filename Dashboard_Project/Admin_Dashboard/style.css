@@ -1,0 +1,328 @@
+    /* ===== Reset ===== */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body {
+        display: flex;
+        min-height: 100vh;
+        background: #f4f6f9;
+        color: #333;
+        transition: 0.3s;
+    }
+
+    body.dark-mode {
+        background: #1c1c1c;
+        color: #eee;
+    }
+
+    body.dark-mode .sidebar {
+        background: #111;
+    }
+
+    body.dark-mode .sidebar a:hover {
+        background: #333;
+    }
+
+    body.dark-mode .main .card {
+        background: #222;
+        color: #eee;
+    }
+
+    body.dark-mode .header {
+        background: #111;
+        color: #eee;
+        border-bottom: 1px solid #444;
+    }
+
+    body.dark-mode input,
+    body.dark-mode select {
+        background: #333;
+        color: #eee;
+        border: 1px solid #555;
+    }
+
+    body.dark-mode button {
+        opacity: 0.9;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+        width: 250px;
+        background: #2c3e50;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        transition: 0.3s;
+    }
+
+    .sidebar.collapsed {
+        width: 70px;
+    }
+
+    .sidebar h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        transition: 0.3s;
+    }
+
+    .sidebar.collapsed h2 {
+        opacity: 0;
+    }
+
+    .sidebar a {
+        text-decoration: none;
+        color: #ecf0f1;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        margin: 5px 0;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 16px;
+    }
+
+    .sidebar a span {
+        margin-left: 10px;
+        transition: 0.3s;
+    }
+
+    .sidebar.collapsed a span {
+        opacity: 0;
+    }
+
+    /* ===== Main ===== */
+    .main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        transition: 0.3s;
+    }
+
+    /* ===== Header ===== */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+        transition: 0.3s;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .header .header-actions {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .header button {
+        padding: 8px 12px;
+        border: none;
+        background: #e74c3c;
+        color: #fff;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .header button:hover {
+        background: #c0392b;
+    }
+
+    .header .notification {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .header .notification span {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: red;
+        color: #fff;
+        font-size: 12px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .notification-panel {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        width: 300px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        display: none;
+        flex-direction: column;
+        z-index: 100;
+    }
+
+    .notification-panel.dark-mode {
+        background: #222;
+        color: #eee;
+    }
+
+    .notification-panel h4 {
+        padding: 10px;
+        background: #3498db;
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .notification-panel ul {
+        list-style: none;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .notification-panel ul li {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .notification-panel ul li:hover {
+        background: #f0f0f0;
+    }
+
+    .notification-panel.dark-mode ul li:hover {
+        background: #333;
+    }
+
+    /* ===== Content ===== */
+    .content {
+        padding: 20px;
+        flex: 1;
+        overflow-y: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 14px;
+        color: #666;
+        transition: 0.3s;
+    }
+
+    /* Color-coded cards */
+    .card.users {
+        border-left: 5px solid #3498db;
+    }
+
+    .card.sales {
+        border-left: 5px solid #2ecc71;
+    }
+
+    .card.projects {
+        border-left: 5px solid #f1c40f;
+    }
+
+    /* Tables & Inputs */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background: #f0f0f0;
+    }
+
+    input[type="password"] {
+        padding: 8px;
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    button.action-btn {
+        padding: 8px 15px;
+        border: none;
+        background: #3498db;
+        color: #fff;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button.action-btn:hover {
+        background: #2980b9;
+    }
+
+    .collapse-btn {
+        padding: 8px 10px;
+        border: none;
+        background: #3498db;
+        color: #fff;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .collapse-btn:hover {
+        background: #2980b9;
+    }
+
+    /* Responsive */
+    @media(max-width:768px) {
+        .sidebar {
+            width: 70px;
+            padding: 10px;
+            align-items: center;
+        }
+
+        .sidebar h2 {
+            display: none;
+        }
+
+        .sidebar a span {
+            display: none;
+        }
+
+        .content {
+            grid-template-columns: 1fr;
+        }
+    }

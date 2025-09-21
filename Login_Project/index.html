@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Console.log Life | Login Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+     <div id="loginScreen">
+        <div class="login-card">
+            <h2>Login to Console.log Life</h2>
+            <form action="" id="loginForm">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="password" required>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+     </div>
+     <!-- Main Site -->
+      <div id="mainSite">
+        <header>
+            <h1>Console.log Life</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><button id="logoutBtn">Logout</button></li>
+                </ul>
+            </nav>
+            <button class="theme-btn" id="themeToggle">light / Dark </button>
+        </header>
+        <main>
+            <section id="home">
+                <h2>Welcome Console.log Life &#127881;</h2>
+                <p>You are now logged in &#127881; Explore Console.log Life!</p>
+            </section>
+
+            <section id="about">
+                <h2>About Us Console.log Life</h2>
+                <p>Console.log Life is a community of developers sharing coding journeys, tips
+                    and tutorials. Learning through practice and collaboration.
+                </p>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Us Console.log Life</h2>
+                <div class="contact-info">
+                    &#128222; Phone: +45 9912345678 <br>
+                    &#128231; Gmail: hello@consolelog.life
+                </div>
+                <form action="" class="contact-form" id="contactForm">
+                    <label for="">Your Name
+                        <input type="text" name="" id="name" required>
+                    </label>
+                    <label for="">Your Email
+                        <input type="email" id="contactEmail" required>
+                    </label>
+                    <label for="">Comment
+                        <textarea rows="4" id="comment" required></textarea>
+                    </label>
+                    <button type="submit">Send Message</button>
+                </form>
+
+            </section>
+        </main>
+        <footer>
+            @ 2025 Console.log Life | Built with &#10084; For Developers!.
+        </footer>
+      </div>
+    
+
+<script src="script.js"></script>
+</body>
+</html>
