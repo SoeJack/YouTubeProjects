@@ -1,0 +1,294 @@
+/* Basic reset & fonts */
+        :root {
+            --bg: #0f1724;
+            /* dark background */
+            --card: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --accent: #7c5cff;
+            /* primary accent */
+            --accent-2: #00d4ff;
+            /* secondary accent */
+            --text: #e6eef8;
+            --muted: #9aa6b2;
+            --success: #24c58b;
+            --danger: #ff6b6b;
+        }
+
+        /* Light theme variables (will apply when body.light-theme class is set) */
+        body.light-theme {
+            --bg: #f3f7fb;
+            --card: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(16, 24, 40, 0.06);
+            --text: #0b1220;
+            --muted: #374151;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: radial-gradient(1200px 600px at 10% 10%, rgba(124, 92, 255, 0.12), transparent),
+                radial-gradient(800px 400px at 90% 90%, rgba(0, 212, 255, 0.06), transparent),
+                var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            transition: background 300ms ease, color 250ms ease;
+        }
+
+        /* ---------- Card / layout ---------- */
+        .login-wrap {
+            width: 100%;
+            max-width: 980px;
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            /* two columns: left showcase, right form */
+            gap: 28px;
+            align-items: center;
+        }
+
+        /* Left panel - branding / illustration */
+        .panel-brand {
+            padding: 36px;
+            border-radius: 20px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.012));
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(8px) saturate(110%);
+            box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            justify-content: center;
+        }
+
+        .brand-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.01em
+        }
+
+        .brand-sub {
+            color: var(--muted);
+            max-width: 60%;
+            line-height: 1.45
+        }
+
+        /* right panel - form card */
+        .panel-form {
+            padding: 28px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.65);
+        }
+
+        /* Form elements */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        label {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            color: var(--text);
+            outline: none;
+            font-size: 15px;
+            transition: box-shadow 160ms ease, transform 160ms ease, border-color 160ms ease;
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        input:focus {
+            box-shadow: 0 6px 20px rgba(124, 92, 255, 0.12);
+            transform: translateY(-1px);
+            border-color: rgba(124, 92, 255, 0.32)
+        }
+
+        .input-row {
+            position: relative;
+            display: flex;
+            align-items: center
+        }
+
+        .toggle-pass {
+            position: absolute;
+            right: 10px;
+            border: none;
+            background: none;
+            padding: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        /* Error message */
+        .error {
+            color: var(--danger);
+            font-size: 13px;
+            display: none
+        }
+
+        .error.show {
+            display: block
+        }
+
+        /* Login button with hover animation */
+        .btn {
+            margin-top: 6px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 15px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            color: white;
+            box-shadow: 0 8px 20px rgba(124, 92, 255, 0.16);
+            transition: transform 160ms cubic-bezier(.2, .9, .2, 1), box-shadow 160ms ease;
+        }
+
+        .btn:active {
+            transform: translateY(1px)
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(124, 92, 255, 0.12)
+        }
+
+        /* small helper row */
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 6px
+        }
+
+        .muted-link {
+            color: var(--muted);
+            font-size: 14px;
+            text-decoration: none
+        }
+
+        /* footer small */
+        .small {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 12px
+        }
+
+        /* controls above form */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px
+        }
+
+        .theme-toggle {
+            display: flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        .switch {
+            position: relative;
+            width: 46px;
+            height: 26px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            cursor: pointer
+        }
+
+        .switch .knob {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: left 200ms cubic-bezier(.2, .9, .2, 1)
+        }
+
+        body.light-theme .switch {
+            background: rgba(0, 0, 0, 0.04)
+        }
+
+        body.light-theme .switch .knob {
+            left: 23px
+        }
+
+        /* small responsive tweaks */
+        @media (max-width:920px) {
+            .login-wrap {
+                grid-template-columns: 1fr;
+                max-width: 720px
+            }
+
+            .panel-brand {
+                order: 2
+            }
+
+            .panel-form {
+                order: 1
+            }
+        }
+
+        @media (max-width:420px) {
+            .brand-sub {
+                max-width: 100%
+            }
+
+            .panel-brand {
+                padding: 20px;
+                border-radius: 14px
+            }
+
+            .panel-form {
+                padding: 20px;
+                border-radius: 14px
+            }
+        }
+
+        /* Accessibility focus visible */
+        :focus {
+            outline: none
+        }
+
+        input:focus-visible {
+            outline: 3px solid rgba(124, 92, 255, 0.12);
+            outline-offset: 3px
+        }
